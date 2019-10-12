@@ -1,33 +1,36 @@
 <template>
 <div id="navbar-wrapper">
+    <!--
+    home about news music  acting writing media live contact
+    -->
     <div id="popout-artist" class="nav-artist">
-        <p>Joshua Hershfield</p>
+        <p>Joshua Daniel Hershfield</p>
     </div>
     <ul id="nav-ul" class="nav-ul">
         <li class="nav-li">
             <router-link to="Home">Home</router-link>
         </li>
         <li class="nav-li">
-            <router-link to="About">About</router-link>
+            <router-link to="Music">Music</router-link>
         </li>
+        <li class="nav-li">
+            <router-link to="Acting">Acting</router-link>
+        </li>
+        <li class="nav-li">
+            <router-link to="Writing">Writing</router-link>
+        </li>
+        <li id="nav-artist" class="nav-li nav-artist">Joshua Daniel Hershfield</li>
         <li class="nav-li">
             <router-link to="News">News</router-link>
         </li>
         <li class="nav-li">
-            <router-link to="Listen">Listen</router-link>
+            <router-link to="Media">Media</router-link>
         </li>
-        <li id="nav-artist" class="nav-li nav-artist">Joshua Hershfield</li>
+<!--        <li class="nav-li">-->
+<!--            <router-link to="About">About</router-link>-->
+<!--        </li>-->
         <li class="nav-li">
             <router-link to="Live">Live</router-link>
-        </li>
-        <li class="nav-li">
-            <router-link to="Films">Films</router-link>
-        </li>
-        <li class="nav-li">
-            <router-link to="Music">Music</router-link>
-        </li>
-        <li class="nav-li">
-            <router-link to="Media">Media</router-link>
         </li>
         <li class="nav-li">
             <router-link to="Contact">Contact</router-link>
@@ -38,7 +41,7 @@
 
 <script>
 export default {
-    name: "navbar"
+    name: "Navbar"
 }
 </script>
 
@@ -61,6 +64,8 @@ export default {
     li {
         display: inline;
         padding: 0 0.25rem;
+        font-size: 0.8em;
+        text-transform: uppercase;
 
         @media (min-width: @tablet-wide){
             padding: 0 0.50rem;

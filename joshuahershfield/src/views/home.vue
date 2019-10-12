@@ -1,11 +1,32 @@
 <template>
-<div id="home-body">
-    <p id="home-title">Album</p>
-    <div id="home-listen">
-        <p>Listen</p>
-    </div>
-    <div id="home-bandcamp">
-        <p>Buy on Bandcamp</p>
+
+<!--
+Background image
+Covered with Dragonfly logo (white)
+Dark background
+
+// Favicon of dragonfly
+// Black and White
+
+// "Music" - play music and links to bandcamp
+// -- Also Song Collaborations
+// -- Also Music for Theater
+
+// Hide the real site at a manually typed domain
+// Google Analytics
+
+-->
+<div>
+    <navbar></navbar>
+    <div id="home-body">
+        <!--    <img src="../assets/dragonfly_white.png">-->
+        <p id="home-title">Shine</p>
+        <div id="home-listen">
+            <p>Listen</p>
+        </div>
+        <div id="home-bandcamp">
+            <p>Buy on Bandcamp</p>
+        </div>
     </div>
 </div>
 </template>
@@ -37,6 +58,7 @@ export default {
 
     &-title {
         font-size: 2rem;
+        text-transform: uppercase;
         @media (min-width: @tablet-wide) {
             font-size: 4rem;
         }
