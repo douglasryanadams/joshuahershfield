@@ -1,6 +1,6 @@
 <template>
 <div id="navbar-wrapper">
-    <div id="mobile-menu-toggle" @click="toggleMobileMenu">
+    <div id="mobile-menu-toggle" @click="toggleMobileMenu" ref="mobileMenuToggle">
         <svg id="mobile-menu" width="30" height="20">
             <line x1="0" x2="30" y1="2" y2="2" stroke="white" stroke-width="3"/>
             <line x1="0" x2="30" y1="8" y2="8" stroke="white" stroke-width="2"/>
@@ -10,7 +10,12 @@
     <div id="popout-artist" class="nav-artist">
         <span>Joshua Daniel Hershfield</span>
     </div>
-    <ul id="nav-ul" class="nav-ul" v-if="showMobileMenu">
+    <ul id="nav-ul"
+        :class="{
+            'nav-ul': true,
+            'show-mobile-menu' : showMobileMenu,
+            'hide-mobile-menu': !showMobileMenu
+        }">
         <li class="nav-li">
             <router-link to="Home">Home</router-link>
         </li>
@@ -45,7 +50,7 @@ export default {
     name: "Navbar",
     data: function () {
         return {
-            showMobileMenu: true
+            showMobileMenu: false
         }
     },
     methods: {
@@ -83,9 +88,19 @@ export default {
     }
 }
 
+.show-mobile-menu {
+    display: list-item;
+}
+
+.hide-mobile-menu {
+    display: none;
+    @media (min-width: @tablet-wide) {
+        display: list-item;
+    }
+}
+
 #nav-ul {
     /*border: 1px solid greenyellow;*/
-    list-style: none;
     padding-inline-start: 0;
 
     @media (min-width: @tablet-wide) {
