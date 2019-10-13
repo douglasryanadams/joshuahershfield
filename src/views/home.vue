@@ -26,6 +26,9 @@ Dark background
             <p>Buy on Bandcamp</p>
         </div>
     </div>
+    <div id="home-background">
+        &nbsp;
+    </div>
 </div>
 </template>
 
@@ -42,6 +45,18 @@ export default {
 @import "../style/variables";
 
 #home {
+    &-background {
+        background-image: url("../assets/josh_home_bg.jpg");
+        /*background-position: center;*/
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 1182px;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: -6rem;
+        z-index: -1;
+    }
     &-body {
         /*border: 1px solid greenyellow;*/
         text-align: center;
