@@ -8,9 +8,6 @@ Vue.config.productionTip = false
 
 Vue.use(VueAnalytics, {
   id: 'UA-149917676-1',
-  autoTracking: {
-    screenview: true
-  },
   router
 })
 
