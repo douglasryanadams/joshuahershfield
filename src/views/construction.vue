@@ -7,12 +7,13 @@
 
 <script>
 export default {
-    name: "Construction"
+    name: "construction"
 }
 </script>
 
 <style lang="less">
 @import "../style/variables";
+
 
 #construction-wrapper {
     text-align: center;
@@ -21,6 +22,10 @@ export default {
     background-repeat: repeat-x;
     width: 100vw;
     height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
 }
 
 .text-format() {

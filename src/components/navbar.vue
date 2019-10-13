@@ -1,61 +1,59 @@
 <template>
-<div id="navbar-wrapper">
-    <div id="mobile-menu-toggle" @click="toggleMobileMenu" ref="mobileMenuToggle">
-        <svg id="mobile-menu" width="30" height="20">
-            <line x1="0" x2="30" y1="2" y2="2" stroke="white" stroke-width="3"/>
-            <line x1="0" x2="30" y1="8" y2="8" stroke="white" stroke-width="2"/>
-            <line x1="0" x2="30" y1="14" y2="14" stroke="white" stroke-width="3"/>
-        </svg>
-    </div>
-    <div id="popout-artist" class="nav-artist">
-        <span>Joshua Daniel Hershfield</span>
-    </div>
-    <ul id="nav-ul"
-        :class="{
+<div>
+    <div id="navbar-wrapper">
+        <div id="mobile-menu-toggle" @click="toggleMobileMenu" ref="mobileMenuToggle">
+            <svg id="mobile-menu" width="30" height="20">
+                <line x1="0" x2="30" y1="2" y2="2" stroke="white" stroke-width="3"/>
+                <line x1="0" x2="30" y1="8" y2="8" stroke="white" stroke-width="2"/>
+                <line x1="0" x2="30" y1="14" y2="14" stroke="white" stroke-width="3"/>
+            </svg>
+        </div>
+        <div id="popout-artist" class="nav-artist">
+            <span>Joshua Daniel Hershfield</span>
+        </div>
+        <ul id="nav-ul"
+            :class="{
             'nav-ul': true,
             'show-mobile-menu' : showMobileMenu,
             'hide-mobile-menu': !showMobileMenu
         }">
-        <li class="nav-li">
-            <router-link to="Home">Home</router-link>
-        </li>
-        <li class="nav-li">
-            <router-link to="Music">Music</router-link>
-        </li>
-        <li class="nav-li">
-            <router-link to="Acting">Acting</router-link>
-        </li>
-        <li class="nav-li">
-            <router-link to="Writing">Writing</router-link>
-        </li>
-        <li id="nav-artist" class="nav-li nav-artist">Joshua Daniel Hershfield</li>
-        <li class="nav-li">
-            <router-link to="News">News</router-link>
-        </li>
-        <li class="nav-li">
-            <router-link to="Media">Media</router-link>
-        </li>
-        <li class="nav-li">
-            <router-link to="Live">Live</router-link>
-        </li>
-        <li class="nav-li">
-            <router-link to="Contact">Contact</router-link>
-        </li>
-    </ul>
+            <li :key="'page-' + i" :class="{'nav-li': true, 'nav-artist': (i === 4), 'hide-nav-artist': (i === 4) }" v-for="(val,i) in pagelist">
+                <span v-if="i === 4">{{val}}</span>
+                <router-link v-else :to="val" @click.native="disableMobileMenu">{{ val }}</router-link>
+            </li>
+        </ul>
+    </div>
+    <div class="spaceholder">
+        &nbsp;
+    </div>
 </div>
 </template>
 
 <script>
 export default {
-    name: "Navbar",
+    name: "navbar",
     data: function () {
         return {
+            pagelist: [
+                'home',
+                'music',
+                'acting',
+                'writing',
+                'Joshua Daniel Hershfield',
+                'news',
+                'media',
+                'live',
+                'contact'
+            ],
             showMobileMenu: false
         }
     },
     methods: {
         toggleMobileMenu: function () {
             this.showMobileMenu = !this.showMobileMenu
+        },
+        disableMobileMenu: function () {
+            this.showMobileMenu = false
         }
     }
 }
@@ -139,9 +137,9 @@ export default {
     letter-spacing: 0.25rem;
 }
 
-#nav-artist {
+.hide-nav-artist {
     display: none !important;
-    font-size: 1.05rem !important;
+    font-size: 1.05rem;
 
     @media (min-width: @desktop-wide) {
         display: inline !important;
@@ -161,6 +159,11 @@ export default {
     @media (min-width: @desktop-wide) {
         display: none;
     }
+}
+
+.spaceholder {
+    width: 100%;
+    height: 2.5rem;
 }
 
 </style>

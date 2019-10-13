@@ -17,7 +17,6 @@ Dark background
 
 -->
 <div>
-    <navbar></navbar>
     <div id="home-body">
         <p id="home-title">Shine</p>
         <div id="home-listen">
@@ -31,11 +30,11 @@ Dark background
 </template>
 
 <script>
-import Navbar from "../components/navbar";
+import navbar from "../components/navbar";
 
 export default {
-    name: 'Main',
-    components: {Navbar}
+    name: 'home',
+    components: {navbar}
 }
 </script>
 
@@ -46,7 +45,7 @@ export default {
     &-body {
         /*border: 1px solid greenyellow;*/
         text-align: center;
-        margin: 10rem auto;
+        margin: 7rem auto;
 
         @media (min-width: @tablet-wide) {
             margin: 15rem auto;
