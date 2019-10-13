@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/home.vue'
+import Main from './views/main.vue'
 import Construction from './views/construction'
 
 Vue.use(Router)
@@ -16,8 +16,8 @@ export default new Router({
         },
         {
             path: '/site',
-            name: 'home',
-            component: Home
+            name: 'Main',
+            component: Main
         }
     ]
 })

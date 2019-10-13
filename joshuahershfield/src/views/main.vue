@@ -19,7 +19,6 @@ Dark background
 <div>
     <navbar></navbar>
     <div id="home-body">
-        <!--    <img src="../assets/dragonfly_white.png">-->
         <p id="home-title">Shine</p>
         <div id="home-listen">
             <p>Listen</p>
@@ -32,10 +31,11 @@ Dark background
 </template>
 
 <script>
+import Navbar from "../components/navbar";
 
 export default {
-    name: 'home',
-    components: {}
+    name: 'Main',
+    components: {Navbar}
 }
 </script>
 

@@ -14,26 +14,24 @@ export default {
 <style lang="less">
 @import "../style/variables";
 
-body {
-    background-image: url("../assets/wood.jpg");
-    background-color: rgb(18, 6, 1);
-    background-position-x: center;
-    background-repeat: repeat-x;
-}
-
 #construction-wrapper {
     text-align: center;
+    background-image: url("../assets/wood.jpg");
+    background-position-x: center;
+    background-repeat: repeat-x;
+    width: 100vw;
+    height: 100vh;
 }
 
 .text-format() {
     font-size: 2rem;
-
     @media (min-width: @tablet-wide) {
         font-size: 4rem;
     }
     @media (min-width: @desktop-wide) {
         font-size: 6rem;
     }
+
     font-family: "Arial Black", sans-serif;
     text-transform: uppercase;
     position: absolute;
@@ -53,9 +51,8 @@ body {
     &-text-shadow {
         .text-format();
         text-shadow: -0.33rem -0.75rem rgba(0, 0, 0, 0.75);
-        z-index: -1; // Just in case
+        color: transparent;
     }
-
 }
 
 </style>
