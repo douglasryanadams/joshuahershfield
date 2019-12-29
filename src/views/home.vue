@@ -1,94 +1,108 @@
 <template>
-
-<!--
-Background image
-Covered with Dragonfly logo (white)
-Dark background
-
-// Favicon of dragonfly
-// Black and White
-
-// "Music" - play music and links to bandcamp
-// -- Also Song Collaborations
-// -- Also Music for Theater
-
-// Hide the real site at a manually typed domain
-// Google Analytics
-
--->
 <div>
-    <div id="home-body">
-        <p id="home-title">Shine</p>
-        <div id="home-listen">
-            <p>Listen</p>
-        </div>
-        <div id="home-bandcamp">
-            <p>Buy on Bandcamp</p>
-        </div>
+  <div id="jdh-heading">
+    JOSHUA DANIEL HERSHFIELD
+  </div>
+  <div id="dragonfly-wrapper">
+    <img 
+      id="dragonfly-img"
+      src="../assets/dragonfly_white.png" 
+      alt="Hand drawn dragonfly outline">
+  </div>
+  <div class="social-wrapper">
+    
+    <div 
+      v-for="social in socialIcons" 
+      v-bind:key="`social-${social.name}`"
+      class="social-icon">
+      <a v-bind:href="social.link" target="_blank">
+        <img
+          v-bind:id="`social-icon-${social.name}`" 
+          v-bind:src="social.imgSrc"
+          v-bind:alt="`Clickable icon for social media platform: ${social.name}`"
+          class="social-icon-img">
+      </a>
     </div>
-    <div id="home-background">
-        &nbsp;
-    </div>
+  </div>
 </div>
 </template>
 
 <script>
-import navbar from "../components/navbar";
-
 export default {
-    name: 'home',
-    components: {navbar}
+  name: 'home',
+  data: function() {
+    return {
+      socialIcons: [
+        {
+          link: "https://www.instagram.com/joshuadanielhershfield/",
+          name: "instagram",
+          imgSrc: require("../assets/social/instagram-icon.png")
+        },
+        {
+          link: "https://www.facebook.com/joshuahershfield/",
+          name: "facebook",
+          imgSrc: require("../assets/social/facebook-icon.png")
+        },
+        {
+          link: "https://www.imdb.com/name/nm3943984/",
+          name: "imdb",
+          imgSrc: require("../assets/social/imdb-icon.png")
+        },
+        {
+          link: "https://twitter.com/savingdeerfield",
+          name: "twitter",
+          imgSrc: require("../assets/social/twitter-icon.png")
+        },
+        {
+          link: "https://www.youtube.com/channel/UCiDPx2oCJzTqq7UrBhtE3ug",
+          name: "youtube",
+          imgSrc: require("../assets/social/youtube-icon.png")
+        }
+      ]
+    }
+  }
 }
 </script>
 
 <style scoped lang="less">
 @import "../style/variables";
 
-#home {
-    &-background {
-        background-image: url("../assets/josh_home_bg.jpg");
-        /*background-position: center;*/
-        background-position: center;
-        background-repeat: no-repeat;
-        height: 1182px;
-        width: 100%;
-        position: absolute;
-        top: 0;
-        left: -6rem;
-        z-index: -1;
-    }
-    &-body {
-        /*border: 1px solid greenyellow;*/
-        text-align: center;
-        margin: 7rem auto;
+#jdh-heading {
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: .5rem;
+  text-align: center;
+  width: 100%;
+}
 
-        @media (min-width: @tablet-wide) {
-            margin: 15rem auto;
-        }
-        @media (min-width: @desktop-wide) {
-            margin: 20rem auto;
-        }
-    }
+#dragonfly {
+  &-wrapper {
+    text-align:center;
+    width: 100%;
+  }
 
-    &-title {
-        font-size: 2rem;
-        text-transform: uppercase;
-        @media (min-width: @tablet-wide) {
-            font-size: 4rem;
-        }
-    }
+  &-img {
+    width: 150px;
+  }
+}
 
-    &-listen {
-        @p: 2rem;
-        text-transform: uppercase;
-        display: inline-block;
-        padding-right: @p;
-        padding-left: @p;
-        border: 2px solid rgba(235, 235, 235, 0.8);
-    }
+.social {
+  &-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 10px;
+  }
 
-    &-bandcamp {
-        padding-top: 2rem;
-    }
+  &-icon {
+    flex: none;
+    margin: 0.5rem;
+  }
+
+  &-icon-img {
+    height: 18px;
+  }
 }
 </style>
