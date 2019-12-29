@@ -49,7 +49,7 @@ export default {
           imgSrc: require("../assets/social/imdb-icon.png")
         },
         {
-          link: "https://twitter.com/savingdeerfield",
+          link: "https://twitter.com/jdhershfield",
           name: "twitter",
           imgSrc: require("../assets/social/twitter-icon.png")
         },
